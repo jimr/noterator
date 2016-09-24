@@ -1,0 +1,75 @@
+=============
+The Noterator
+=============
+
+
+.. image:: https://img.shields.io/pypi/v/noterator.svg
+        :target: https://pypi.python.org/pypi/noterator
+
+.. image:: https://readthedocs.org/projects/noterator/badge/?version=latest
+        :target: https://noterator.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+.. image:: https://pyup.io/repos/github/jimr/noterator/shield.svg
+     :target: https://pyup.io/repos/github/jimr/noterator/
+     :alt: Updates
+
+
+Adding notification to your iteration.
+
+.. code-block:: pycon
+
+    >>> from noterator import noterate, EMAIL, HIPCHAT, TWILIO
+    >>> for obj in noterate(my_objects, method=EMAIL|HIPCHAT|TWILIO):
+    ...     do_something_slow(obj)
+    ... 
+    >>> 
+
+
+Configuration
+-------------
+
+Before The Noterator can do anything, you'll need a ``config.ini`` file (see config.example.ini_ or the example below to get started).
+
+.. _config.example.ini: https://github.com/jimr/noterator/blob/master/config.example.ini
+
+By default, we check for ``$HOME/.config/noterator/config.ini``, so it's probably best to keep your config there, but you can pass the ``config_file`` parameter to ``noterate`` with the path to an alternative location.
+
+You only need to define settings for the methods you wish to use.
+
+.. code-block:: ini
+
+    [email]
+    from = The Noterator <noterator@example.org>
+    to = you@example.org
+    host = smtp.example.org
+    port = 25
+    username = postmaster@example.org
+    password = password123
+
+    [hipchat]
+    token = abc123
+    room_id = 123456
+    from_name = The Noterator
+    message_colour = green
+
+    [twilio]
+    account_sid = abc123
+    token = abc123
+    from_number = +123456
+    to_number = +456789
+
+
+License
+-------
+
+MIT.
+
+
+Credits
+---------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
