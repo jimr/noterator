@@ -53,6 +53,7 @@ class noterate(object):
         desc (str): Description to include in the notification.
         start (bool): Send a notification when iteration starts
         finish (bool): Send a notification when iteration completes
+        every_n (int): Send a notification every ``every_n`` iterations
         method (int): Method(s) to use (e.g. ``EMAIL|HIPCHAT``)
         head (string): Header for notification message
         body (string): Body for notification message. We call `.format` on this
@@ -62,10 +63,11 @@ class noterate(object):
 
     """
     def __init__(self, iterable, desc=None, method=QUIET, head=None, body=None,
-                 start=False, finish=True, config_file=None):
+                 start=False, finish=True, every_n=None, config_file=None):
         self.iterable = iterable
         self.start = start
         self.finish = finish
+        self.every_n = every_n
         self.method = method
 
         self.head = head or 'Noterator alert'
@@ -128,12 +130,17 @@ class noterate(object):
 
         if self.start and started:
             send = True
-            body = '{} started at {}'.format(self.desc, now())
+            body = '{} started at {}.'.format(self.desc, now())
 
         if self.finish and finished:
             send = True
             body = '{} finished at {} (total iterations: {}).'.format(
                 self.desc, now(), self.index,
+            )
+        elif self.every_n and self.index > 0 and self.index % self.every_n == 0:
+            send = True
+            body = '{} completed {} iterations at {}.'.format(
+                self.desc, self.index, now(),
             )
 
         if send:

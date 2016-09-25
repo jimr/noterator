@@ -33,6 +33,16 @@ You can combine notification methods and get notified when iteration begins:
     ...
     >>>
 
+If you want to hear about progress before completion, you can use the ``every_n`` parameter:
+
+.. code-block:: pycon
+
+    >>> from noterator import noterate, EMAIL
+    >>> for obj in noterate(my_objects, every_n=100, method=EMAIL):
+    ...     do_something_slow(obj)
+    ...
+    >>>
+
 If the sequence you're iterating over is an iterator, you can also use ``noterate`` as one:
 
 .. code-block:: pycon
