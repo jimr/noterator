@@ -7,7 +7,7 @@ History
 
 * First release on PyPI.
 
-0.1.1 (2016-09-25)
+0.2.0 (2016-09-25)
 ------------------
 
 * More safety checks in configuration
