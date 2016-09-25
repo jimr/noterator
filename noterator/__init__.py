@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 from __future__ import absolute_import
 
-from noterator import config
+from noterator.config import load_config, ConfigurationError
 from noterator.plugins import email, hipchat, twilio
 from noterator.utils import catch_all, now
 
@@ -75,7 +75,7 @@ class noterate(object):
         self.desc = desc or 'Iteration'
 
         self.index = 0
-        self.cfg = config.load(config_file)
+        self.cfg = load_config(config_file)
 
         self.methods = (
             (EMAIL, 'email', email),
@@ -88,13 +88,15 @@ class noterate(object):
                 # If we're using a given notification method, make sure it's
                 # configured.
                 if config_key not in self.cfg.sections():
-                    raise LookupError('{} is not configured'.format(config_key))
+                    raise ConfigurationError(
+                        '{} is not configured'.format(config_key),
+                    )
                 else:
                     # Make sure all required configuration parameters are set
                     configured = set(self.cfg.options(config_key))
                     required = set(module.REQUIRED_CONFIG)
                     if configured & required != required:
-                        raise LookupError(
+                        raise ConfigurationError(
                             '{} is missing required settings: {}'.format(
                                 config_key, ', '.join(required - configured),
                             )

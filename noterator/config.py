@@ -18,7 +18,7 @@ class ConfigurationError(Exception):
     pass
 
 
-def load(fname=None):
+def load_config(fname=None):
     """Load and return configuration from a file.
 
     Args:
