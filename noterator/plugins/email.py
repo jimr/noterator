@@ -5,6 +5,10 @@ from __future__ import absolute_import
 import smtplib
 from email.mime.text import MIMEText
 
+REQUIRED_CONFIG = [
+    'from', 'to', 'host',
+]
+
 
 def notify(head, body, **kwargs):
     mail_from = kwargs['from']

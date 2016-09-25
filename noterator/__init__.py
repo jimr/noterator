@@ -82,8 +82,21 @@ class noterate(object):
         )
 
         for flag, config_key, module in self.methods:
-            if method & flag and config_key not in self.cfg.sections():
-                raise LookupError('{} is not configured'.format(config_key))
+            if method & flag:
+                # If we're using a given notification method, make sure it's
+                # configured.
+                if config_key not in self.cfg.sections():
+                    raise LookupError('{} is not configured'.format(config_key))
+                else:
+                    # Make sure all required configuration parameters are set
+                    configured = set(self.cfg.options(config_key))
+                    required = set(module.REQUIRED_CONFIG)
+                    if configured & required != required:
+                        raise LookupError(
+                            '{} is missing required settings: {}'.format(
+                                config_key, ', '.join(required - configured),
+                            )
+                        )
 
     def __iter__(self):
         self._notify(started=True)

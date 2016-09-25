@@ -4,6 +4,10 @@ from __future__ import absolute_import
 
 import requests
 
+REQUIRED_CONFIG = [
+    'account_sid', 'token', 'from_number', 'to_number',
+]
+
 
 def notify(head, body, **kwargs):
     account_sid = kwargs['account_sid']
