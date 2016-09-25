@@ -33,7 +33,7 @@ You can combine notification methods and get notified when iteration begins:
     ...
     >>>
 
-If the sequence you're iterating over is an iterator, you can also use ``noterator`` as one:
+If the sequence you're iterating over is an iterator, you can also use ``noterate`` as one:
 
 .. code-block:: pycon
 

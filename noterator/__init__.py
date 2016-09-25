@@ -67,18 +67,23 @@ class noterate(object):
         self.start = start
         self.finish = finish
         self.method = method
-        self.index = 0
+
         self.head = head or 'Noterator alert'
         self.body = body or 'progress: {} iterations.'
         self.desc = desc or 'Iteration'
 
+        self.index = 0
         self.cfg = config.load(config_file)
 
-        if method & EMAIL:
-            assert 'email' in self.cfg.sections(), 'email config missing'
+        self.methods = (
+            (EMAIL, 'email', email),
+            (TWILIO, 'twilio', twilio),
+            (HIPCHAT, 'hipchat', hipchat),
+        )
 
-        if method & HIPCHAT:
-            assert 'hipchat' in self.cfg.sections(), 'hipchat config missing'
+        for flag, config_key, module in self.methods:
+            if method & flag and config_key not in self.cfg.sections():
+                raise LookupError('{} is not configured'.format(config_key))
 
     def __iter__(self):
         self._notify(started=True)
@@ -118,14 +123,8 @@ class noterate(object):
                 self.desc, now(), self.index,
             )
 
-        methods = (
-            (EMAIL, 'email', email),
-            (TWILIO, 'twilio', twilio),
-            (HIPCHAT, 'hipchat', hipchat),
-        )
-
         if send:
-            for method, config_key, module in methods:
+            for method, config_key, module in self.methods:
                 if self.method & method:
                     module.notify(
                         self.head, body, **dict(self.cfg.items(config_key))
