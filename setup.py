@@ -19,7 +19,7 @@ test_requirements = [
 
 setup(
     name='noterator',
-    version='0.1.0',
+    version='0.2.0',
     description="The Noterator: bringing notification to iteration.",
     long_description=readme + '\n\n' + history,
     author="James Rutherford",

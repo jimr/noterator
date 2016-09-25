@@ -9,7 +9,7 @@ from noterator.utils import catch_all, now
 
 __author__ = 'James Rutherford'
 __email__ = 'jim@jimr.org'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 
 QUIET = 0
