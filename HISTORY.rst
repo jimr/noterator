@@ -12,3 +12,8 @@ History
 
 * More safety checks in configuration
 * Added the ``every_n`` parameter to ``noterate``
+
+0.2.1 (2016-09-25)
+------------------
+
+* More appropriate exception usage in config loading / checking
