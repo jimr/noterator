@@ -2,7 +2,13 @@
 History
 =======
 
-0.1.0 (2016-09-18)
+0.1.0 (2016-09-24)
 ------------------
 
 * First release on PyPI.
+
+0.1.1 (2016-09-25)
+------------------
+
+* More safety checks in configuration
+* Added the ``every_n`` parameter to ``noterate``
