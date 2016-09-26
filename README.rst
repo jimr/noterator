@@ -25,6 +25,13 @@ Adding notification to your iteration.
     ... 
     >>> 
 
+When the loop completes, The Noterator will notify you by all the methods you pass to `method`.
+In this case it'll email you, send a HipChat notification, and send an SMS to your configured number with Twilio.
+
+You can find more usage information in the `usage docs`_.
+
+.. _`usage docs`: http://noterator.readthedocs.io/en/latest/usage.html
+
 
 Configuration
 -------------
