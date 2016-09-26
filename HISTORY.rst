@@ -17,3 +17,8 @@ History
 ------------------
 
 * More appropriate exception usage in config loading / checking
+
+0.2.2 (2016-09-26)
+------------------
+
+* Fixed a packaging error
