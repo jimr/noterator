@@ -20,12 +20,12 @@ Adding notification to your iteration.
 .. code-block:: pycon
 
     >>> from noterator import noterate, EMAIL, HIPCHAT, TWILIO
-    >>> for obj in noterate(my_objects, method=EMAIL|HIPCHAT|TWILIO):
+    >>> for obj in noterate(my_objects, EMAIL|HIPCHAT|TWILIO):
     ...     do_something_slow(obj)
     ... 
     >>> 
 
-When the loop completes, The Noterator will notify you by all the methods you pass to `method`.
+When the loop completes, The Noterator will notify you by all the methods you passed in.
 In this case it'll email you, send a HipChat notification, and send an SMS to your configured number with Twilio.
 
 You can find more usage information in the `usage docs`_.
@@ -38,17 +38,21 @@ Configuration
 
 Before The Noterator can do anything, you'll need a ``config.ini`` file (see config.example.ini_ or the example below to get started).
 
-.. _config.example.ini: https://github.com/jimr/noterator/blob/master/config.example.ini
+It's possible to use The Noterator without a configuration file, but it's a little less concise.
+See the `configuration docs`_ for more detail.
 
 By default, we check for ``$HOME/.config/noterator/config.ini``, so it's probably best to keep your config there, but you can pass the ``config_file`` parameter to ``noterate`` with the path to an alternative location.
 
 You only need to define settings for the methods you wish to use.
 
+.. _config.example.ini: https://github.com/jimr/noterator/blob/master/config.example.ini
+.. _`configuration docs`: http://noterator.readthedocs.io/en/latest/configuration.html
+
 .. code-block:: ini
 
     [email]
-    from = The Noterator <noterator@example.org>
-    to = you@example.org
+    from_mail = The Noterator <noterator@example.org>
+    recipient = you@example.org
     host = smtp.example.org
     port = 25
     username = postmaster@example.org
@@ -66,6 +70,13 @@ You only need to define settings for the methods you wish to use.
     from_number = +123456
     to_number = +456789
 
+TODO
+~~~~
+
+* New notification plugin: logging
+* Notication during iteration, a la `tqdm.write`_
+
+.. _`tqdm.write`: https://github.com/tqdm/tqdm#writing-messages
 
 License
 -------

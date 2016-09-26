@@ -16,6 +16,7 @@ Keep reading
 
    installation
    usage
+   configuration
    contributing
    authorshistory
 

@@ -38,7 +38,7 @@ def load_config(fname=None):
         )
 
     if not os.path.exists(fname):
-        raise ConfigurationError(
+        raise IOError(
             "Unable to find configuration file."
         )
 
