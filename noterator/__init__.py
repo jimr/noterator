@@ -204,11 +204,15 @@ class Noterator(object):
             body = '{} finished at {} (total iterations: {}).'.format(
                 self.desc, now(), self.index,
             )
-        elif self.every_n and self.index > 0 and self.index % self.every_n == 0:
-            send = True
-            body = '{} completed {} iterations at {}.'.format(
-                self.desc, self.index, now(),
-            )
+        elif self.every_n:
+            # We don't send `every_n` notifications on iteration completion
+            # where that would be a duplicate notification hence the `elif`
+            # with `self.finish and finished`
+            if self.index > 0 and self.index % self.every_n == 0:
+                send = True
+                body = '{} completed {} iterations at {}.'.format(
+                    self.desc, self.index, now(),
+                )
 
         if send:
             for method, config_key, module in self.methods:
