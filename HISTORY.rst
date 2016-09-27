@@ -30,3 +30,4 @@ Unreleased changes
 * Configuration is now possible without a config file (``instance.configure_plugin``)
 * Plugin validation is now triggred when iteration begins, not when the Noterator is built
 * Changed email plugin configuration keys to be consistent with, e.g. Django
+* Added tests for configuration file validation
