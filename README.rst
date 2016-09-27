@@ -6,6 +6,10 @@ The Noterator
 .. image:: https://img.shields.io/pypi/v/noterator.svg
         :target: https://pypi.python.org/pypi/noterator
 
+
+.. image:: https://img.shields.io/travis/jimr/noterator.svg
+        :target: https://travis-ci.org/jimr/noterator
+
 .. image:: https://readthedocs.org/projects/noterator/badge/?version=latest
         :target: https://noterator.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
