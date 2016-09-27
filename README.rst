@@ -73,8 +73,9 @@ You only need to define settings for the methods you wish to use.
 TODO
 ~~~~
 
-* New notification plugin: logging
+* New notification plugins: logging, desktop
 * Notication during iteration, a la `tqdm.write`_
+* Tests - will require mocks for each of the plugins
 
 .. _`tqdm.write`: https://github.com/tqdm/tqdm#writing-messages
 
