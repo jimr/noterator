@@ -24,7 +24,7 @@ History
 * Fixed a packaging error
 
 0.3.0 (2016-09-28)
-==================
+------------------
 
 * Allow the construction of re-usable Noterators with the ``Noterator`` class
 * Configuration is now possible without a config file (``instance.configure_plugin``)
