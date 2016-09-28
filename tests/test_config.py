@@ -23,3 +23,9 @@ class TestConfigValidation(unittest.TestCase):
         )
         with self.assertRaises(ConfigurationError):
             noterator._validate_config()
+
+    def test_bad_path(self):
+        noterator = Noterator(
+            config_file='nowhere-useful',
+        )
+        self.assertEqual(len(noterator.cfg.sections()), 0)
