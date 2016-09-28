@@ -10,6 +10,10 @@ The Noterator
 .. image:: https://img.shields.io/travis/jimr/noterator.svg
         :target: https://travis-ci.org/jimr/noterator
 
+.. image:: https://coveralls.io/repos/github/jimr/noterator/badge.svg?branch=master
+        :target: https://coveralls.io/github/jimr/noterator?branch=master
+
+
 .. image:: https://readthedocs.org/projects/noterator/badge/?version=latest
         :target: https://noterator.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
