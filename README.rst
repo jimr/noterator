@@ -79,7 +79,6 @@ TODO
 
 * New notification plugins: logging, desktop
 * Notication during iteration, a la `tqdm.write`_
-* Tests - will require mocks for each of the plugins
 
 .. _`tqdm.write`: https://github.com/tqdm/tqdm#writing-messages
 

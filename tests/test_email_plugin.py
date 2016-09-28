@@ -5,8 +5,6 @@ import unittest
 
 from email.mime.text import MIMEText
 
-from .utils import all_available_methods, get_config_path
-
 from noterator import Noterator, EMAIL
 
 
