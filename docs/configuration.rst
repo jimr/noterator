@@ -46,7 +46,7 @@ The following code would work even if no configuration file could be found:
 
     >>> from noterator import Noterator, EMAIL
     >>> noterator = Noterator(my_objects, method=EMAIL, every_n=100, start=True)
-    >>> noterator.configure_plugin('email', recipient='you@example.org', from_mail='postmaster@emaple.org', host='smtp.example.org')
+    >>> noterator.configure_plugin('email', recipient='you@example.org', from_mail='postmaster@example.org', host='smtp.example.org')
     >>> for obj in noterator:
     ...     do_something_slow(obj)
     ... 
