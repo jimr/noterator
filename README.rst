@@ -4,19 +4,20 @@ The Noterator
 
 
 .. image:: https://img.shields.io/pypi/v/noterator.svg
-        :target: https://pypi.python.org/pypi/noterator
-
+    :target: https://pypi.python.org/pypi/noterator
+    :alt: Latest Release
 
 .. image:: https://img.shields.io/travis/jimr/noterator.svg
-        :target: https://travis-ci.org/jimr/noterator
+    :target: https://travis-ci.org/jimr/noterator
+    :alt: Build Status
 
-.. image:: https://coveralls.io/repos/github/jimr/noterator/badge.svg?branch=master
-        :target: https://coveralls.io/github/jimr/noterator?branch=master
-
+.. image:: https://codecov.io/gh/jimr/noterator/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/jimr/noterator
+    :alt: Test Coverage
 
 .. image:: https://readthedocs.org/projects/noterator/badge/?version=latest
-        :target: https://noterator.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+    :target: https://noterator.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/jimr/noterator/shield.svg
      :target: https://pyup.io/repos/github/jimr/noterator/
