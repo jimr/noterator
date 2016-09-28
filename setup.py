@@ -14,7 +14,7 @@ requirements = [
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
+    'mock==2.0.0',
 ]
 
 setup(
