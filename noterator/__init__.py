@@ -193,26 +193,19 @@ class Noterator(object):
     @catch_all
     def _notify(self, started=False, finished=False):
         send = False
-        body = self.body.format(self.index)
+        body = self._get_body(started, finished)
 
         if self.start and started:
             send = True
-            body = '{} started at {}.'.format(self.desc, now())
 
         if self.finish and finished:
             send = True
-            body = '{} finished at {} (total iterations: {}).'.format(
-                self.desc, now(), self.index,
-            )
         elif self.every_n:
             # We don't send `every_n` notifications on iteration completion
             # where that would be a duplicate notification hence the `elif`
             # with `self.finish and finished`
             if self.index > 0 and self.index % self.every_n == 0:
                 send = True
-                body = '{} completed {} iterations at {}.'.format(
-                    self.desc, self.index, now(),
-                )
 
         if send:
             for method, config_key, module in self.methods:
@@ -220,6 +213,22 @@ class Noterator(object):
                     module.notify(
                         self.head, body, **dict(self.cfg.items(config_key))
                     )
+
+    def _get_body(self, started=False, finished=False):
+        body = self.body.format(self.index)
+        if started:
+            body = '{} started at {}.'.format(self.desc, now())
+
+        if finished:
+            body = '{} finished at {} (total iterations: {}).'.format(
+                self.desc, now(), self.index,
+            )
+        elif self.every_n and self.index > 0:
+            body = '{} completed {} iterations at {}.'.format(
+                self.desc, self.index, now(),
+            )
+
+        return body
 
 
 def noterate(iterable, *args, **kwargs):
