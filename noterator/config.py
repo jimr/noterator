@@ -34,7 +34,7 @@ def load_config(fname=None):
     """
     if not fname:
         fname = os.path.join(
-            os.getenv('HOME'), '.config', 'noterator', 'config.ini'
+            os.getenv('HOME', ''), '.config', 'noterator', 'config.ini'
         )
 
     if not os.path.exists(fname):
