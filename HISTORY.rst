@@ -23,11 +23,12 @@ History
 
 * Fixed a packaging error
 
-Unreleased changes
+0.3.0 (2016-09-28)
 ==================
 
 * Allow the construction of re-usable Noterators with the ``Noterator`` class
 * Configuration is now possible without a config file (``instance.configure_plugin``)
 * Plugin validation is now triggred when iteration begins, not when the Noterator is built
 * Changed email plugin configuration keys to be consistent with, e.g. Django
-* Added tests for configuration file validation
+* Added tests for configuration file validation & all plugins
+* Travis CI + coverage / Coveralls integration
