@@ -23,7 +23,7 @@ class TestEmailPlugin(unittest.TestCase):
         smtp = mock.Mock()
         smtplib.SMTP = mock.Mock(return_value=smtp)
 
-        n = Noterator(range(5), EMAIL)
+        n = Noterator(range(5), EMAIL, config_file=None)
         n.configure_plugin('email', **cfg)
         for _ in n:
             pass

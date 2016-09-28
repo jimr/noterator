@@ -16,7 +16,7 @@ class TestEmailPlugin(unittest.TestCase):
             'to_number': '+13579',
         }
 
-        n = Noterator(range(5), TWILIO)
+        n = Noterator(range(5), TWILIO, config_file=None)
         n.configure_plugin('twilio', **cfg)
         for _ in n:
             pass

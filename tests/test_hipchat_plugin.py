@@ -16,7 +16,7 @@ class TestEmailPlugin(unittest.TestCase):
             'message_colour': 'neon pink',
         }
 
-        n = Noterator(range(5), HIPCHAT)
+        n = Noterator(range(5), HIPCHAT, config_file=None)
         n.configure_plugin('hipchat', **cfg)
         for _ in n:
             pass
