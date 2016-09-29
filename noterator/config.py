@@ -5,13 +5,7 @@ import os
 try:
     from ConfigParser import SafeConfigParser as ConfigParser
 except ImportError:  # py3k
-    import sys
-    minor = sys.version_info[1]
-    if minor >= 2:
-        # SafeConfigParser is deprecated as of 3.2
-        from configparser import ConfigParser
-    else:
-        from configparser import SafeConfigParser as ConfigParser
+    from configparser import ConfigParser
 
 
 class ConfigurationError(Exception):
