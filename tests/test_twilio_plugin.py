@@ -27,7 +27,9 @@ class TestEmailPlugin(unittest.TestCase):
         payload = {
             "From": cfg['from_number'],
             "To": cfg['to_number'],
-            "Body": "{}: {}".format(n.head, n._get_body(finished=True)),
+            "Body": "{}: {}".format(
+                n.head, n._get_body(TWILIO, finished=True),
+            ),
         }
         auth = (cfg['account_sid'], cfg['token'])
 

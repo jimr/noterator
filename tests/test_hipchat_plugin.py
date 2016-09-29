@@ -25,7 +25,9 @@ class TestEmailPlugin(unittest.TestCase):
             cfg['room_id'],
         )
         payload = {
-            "message": "{}: {}".format(n.head, n._get_body(finished=True)),
+            "message": "{}: {}".format(
+                n.head, n._get_body(HIPCHAT, finished=True),
+            ),
             "from": cfg['from_name'],
             "color": cfg['message_colour'],
         }

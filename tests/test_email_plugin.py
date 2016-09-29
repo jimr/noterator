@@ -28,7 +28,7 @@ class TestEmailPlugin(unittest.TestCase):
         for _ in n:
             pass
 
-        msg = MIMEText(n._get_body(finished=True))
+        msg = MIMEText(n._get_body(EMAIL, finished=True))
         msg['Subject'] = n.head
         msg['From'] = cfg['from_mail']
         msg['To'] = cfg['recipient']

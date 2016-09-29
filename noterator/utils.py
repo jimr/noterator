@@ -4,6 +4,11 @@ from datetime import datetime
 from functools import wraps
 
 
+def enum(*listed, **named):
+    enums = dict(zip(listed, range(len(listed))), **named)
+    return type('Enum', (), enums)
+
+
 def now():
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 

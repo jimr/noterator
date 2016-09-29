@@ -28,14 +28,15 @@ Adding notification to your iteration.
 
 .. code-block:: pycon
 
-    >>> from noterator import noterate, EMAIL, HIPCHAT, TWILIO
+    >>> from noterator import noterate, EMAIL, TWILIO
     >>> for obj in noterate(my_objects, EMAIL|HIPCHAT|TWILIO):
     ...     do_something_slow(obj)
     ... 
     >>> 
 
 When the loop completes, The Noterator will notify you by all the methods you passed in.
-In this case it'll email you, send a HipChat notification, and send an SMS to your configured number with Twilio.
+In this case it'll email you and send an SMS to your configured number with Twilio.
+Other supported notification methods are HipChat (send a notification to a room) and desktop (Mac only for now).
 
 You can find more usage information in the `usage docs`_.
 
@@ -78,6 +79,9 @@ You only need to define settings for the methods you wish to use.
     token = abc123
     from_number = +123456
     to_number = +456789
+
+    [desktop]
+    sound = true
 
 TODO
 ~~~~

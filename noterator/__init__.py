@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from __future__ import absolute_import
 
 from noterator.config import load_config, ConfigParser, ConfigurationError
-from noterator.plugins import email, hipchat, twilio
+from noterator.plugins import desktop, email, hipchat, twilio
 from noterator.utils import catch_all, now
 
 __author__ = 'James Rutherford'
@@ -16,6 +16,7 @@ QUIET = 0
 EMAIL = 1
 TWILIO = 1 << 1
 HIPCHAT = 1 << 2
+DESKTOP = 1 << 3
 
 
 class Noterator(object):
@@ -75,6 +76,7 @@ class Noterator(object):
     """
     index = 0
     methods = (
+        (DESKTOP, 'desktop', desktop),
         (EMAIL, 'email', email),
         (TWILIO, 'twilio', twilio),
         (HIPCHAT, 'hipchat', hipchat),
@@ -176,9 +178,10 @@ class Noterator(object):
                 # If we're using a given notification method, make sure it's
                 # configured.
                 if config_key not in self.cfg.sections():
-                    raise ConfigurationError(
-                        '{} is not configured'.format(config_key),
-                    )
+                    if len(module.REQUIRED_CONFIG):
+                        raise ConfigurationError(
+                            '{} is not configured'.format(config_key),
+                        )
                 else:
                     # Make sure all required configuration parameters are set
                     configured = set(self.cfg.options(config_key))
@@ -193,7 +196,6 @@ class Noterator(object):
     @catch_all
     def _notify(self, started=False, finished=False):
         send = False
-        body = self._get_body(started, finished)
 
         if self.start and started:
             send = True
@@ -210,23 +212,32 @@ class Noterator(object):
         if send:
             for method, config_key, module in self.methods:
                 if self.method & method:
-                    module.notify(
-                        self.head, body, **dict(self.cfg.items(config_key))
-                    )
+                    body = self._get_body(method, started, finished)
+                    cfg = {}
+                    if config_key in self.cfg.sections():
+                        cfg = dict(self.cfg.items(config_key))
+                    module.notify(self.head, body, **cfg)
 
-    def _get_body(self, started=False, finished=False):
+    def _get_body(self, method, started=False, finished=False):
         body = self.body.format(self.index)
+
         if started:
-            body = '{} started at {}.'.format(self.desc, now())
+            body = '{} started'.format(self.desc)
 
         if finished:
-            body = '{} finished at {} (total iterations: {}).'.format(
-                self.desc, now(), self.index,
+            body = '{} finished (total iterations: {})'.format(
+                self.desc, self.index,
             )
         elif self.every_n and self.index > 0:
-            body = '{} completed {} iterations at {}.'.format(
-                self.desc, self.index, now(),
+            body = '{} completed {} iterations'.format(
+                self.desc, self.index,
             )
+
+        # If it's a desktop notification you don't need a timestamp because
+        # it's immediate. All other mechanisms may be delayed for some reason
+        # so a timestamp is potentially useful.
+        if not method & DESKTOP:
+            body = '{} at {}'.format(body, now())
 
         return body
 
