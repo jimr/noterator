@@ -9,7 +9,7 @@ try:
     import objc
     PLATFORM = Platforms.MAC
 except ImportError:
-    pass
+    objc = None
 
 REQUIRED_CONFIG = []
 
