@@ -20,8 +20,8 @@ The Noterator
     :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/jimr/noterator/shield.svg
-     :target: https://pyup.io/repos/github/jimr/noterator/
-     :alt: Updates
+    :target: https://pyup.io/repos/github/jimr/noterator/
+    :alt: Updates
 
 
 Adding notification to your iteration.
