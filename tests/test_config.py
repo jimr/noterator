@@ -33,3 +33,12 @@ class TestConfigValidation(unittest.TestCase):
 
         with self.assertRaises(ConfigurationError):
             noterator._validate_config()
+
+    def test_config_patch(self):
+        noterator = Noterator(
+            method=all_available_methods(),
+            config_file='nowhere-useful',
+        )
+        self.assertEqual(len(noterator.cfg.sections()), 0)
+        noterator.configure_plugin('desktop', sound='true')
+        self.assertEqual(len(noterator.cfg.sections()), 1)
