@@ -1,21 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from noterator.utils import enum
-
-Platforms = enum('UNKNOWN', 'MAC', 'WINDOWS', 'LINUX')
-
-PLATFORM = Platforms.UNKNOWN
-try:
-    import objc
-    PLATFORM = Platforms.MAC
-except ImportError:
-    objc = None
+import sys
 
 REQUIRED_CONFIG = []
 
 
 def notify(head, body, **cfg):
-    if PLATFORM == Platforms.MAC:
+    if sys.platform == 'darwin':
+        import objc
         NSUserNotification = objc.lookUpClass('NSUserNotification')
         NSUserNotificationCenter = objc.lookUpClass('NSUserNotificationCenter')
 
