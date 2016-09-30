@@ -32,3 +32,10 @@ History
 * Changed email plugin configuration keys to be consistent with, e.g. Django
 * Added tests for configuration file validation & all plugins
 * Travis CI + coverage / Coveralls integration
+
+Unreleased changes
+==================
+
+* Desktop notification (Mac only)
+* Improvements to testing
+* Test coverage reporting to codecov.io
