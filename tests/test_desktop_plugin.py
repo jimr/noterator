@@ -24,3 +24,10 @@ class TestDesktopPlugin(unittest.TestCase):
             pass
 
         nc.scheduleNotification_.assert_called_once()
+
+    @mock.patch('noterator.plugins.desktop.subprocess')
+    def test_desktop_plugin_linux(self, subprocess):
+        sys.platform = 'linux2'
+        n = Noterator(range(5), DESKTOP, config_file=None)
+        for _ in n:
+            pass

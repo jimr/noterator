@@ -36,7 +36,7 @@ Adding notification to your iteration.
 
 When the loop completes, The Noterator will notify you by all the methods you passed in.
 In this case it'll email you and send an SMS to your configured number with Twilio.
-Other supported notification methods are HipChat (send a notification to a room) and desktop (Mac only for now).
+Other supported notification methods are HipChat (send a notification to a room) and desktop.
 
 You can find more usage information in the `usage docs`_.
 
@@ -86,7 +86,7 @@ You only need to define settings for the methods you wish to use.
 TODO
 ~~~~
 
-* New notification plugins: logging, desktop
+* New notification plugins: logging, ...
 * Notication during iteration, a la `tqdm.write`_
 
 .. _`tqdm.write`: https://github.com/tqdm/tqdm#writing-messages

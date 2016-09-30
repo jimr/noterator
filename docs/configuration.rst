@@ -2,6 +2,26 @@
 Configuration
 =============
 
+Available notification methods
+==============================
+
+Currently, The Noterator supports email, HipChat, Twilio (SMS), and desktop notifications.
+
+Desktop notifications are only supported on Mac & Linux. On Linux, the ``notify-send`` binary must be on your ``$PATH``.
+
+Here is the full set of configuration options available for all notification methods:
+
+.. literalinclude:: ../config.example.ini
+    :language: ini
+
+The only settings that have a default are:
+
+* ``email.port``: ``25``
+* ``hipchat.from_name``: ``The Noterator``
+* ``hipchat.message_colour``: ``green``
+* ``desktop.sound``: ``false``
+
+
 Configuration in ``.ini`` files
 ===============================
 

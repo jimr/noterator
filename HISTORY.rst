@@ -36,6 +36,6 @@ History
 Unreleased changes
 ==================
 
-* Desktop notification (Mac only)
+* Desktop notification (Mac & Linux)
 * Improvements to testing
 * Test coverage reporting to codecov.io
