@@ -33,7 +33,7 @@ History
 * Added tests for configuration file validation & all plugins
 * Travis CI + coverage / Coveralls integration
 
-Unreleased changes
+0.4.0 (2016-09-30)
 ==================
 
 * Desktop notification (Mac & Linux)
