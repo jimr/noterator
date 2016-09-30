@@ -51,7 +51,7 @@ lint: ## check style with flake8
 	flake8 noterator tests
 
 test: ## run tests quickly with the default Python
-	py.test --cov noterator --cov-append
+	py.test --cov noterator --cov-append --cov-report term-missing
 	
 
 test-all: ## run tests on every Python version with tox
