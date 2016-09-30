@@ -34,7 +34,7 @@ History
 * Travis CI + coverage / Coveralls integration
 
 0.4.0 (2016-09-30)
-==================
+------------------
 
 * Desktop notification (Mac & Linux)
 * Improvements to testing
