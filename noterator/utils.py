@@ -9,7 +9,7 @@ def now():
 
 
 def catch_all(func):
-    """Simple decorator that wraps a function in a silent tr/except.
+    """Simple decorator that wraps a function in a silent try/except.
 
     Useful for wrapping functions that might fail but shouldn't propagate that
     failure to the caller. For example, notifications might break, but we don't

@@ -32,8 +32,9 @@ class TestDesktopPlugin(unittest.TestCase):
 
     def test_desktop_plugin_linux(self):
         gi = mock.Mock()
-        gi.repository = mock.Mock()
+        repository = mock.Mock()
         sys.modules['gi'] = gi
+        sys.modules['gi.repository'] = repository
         sys.platform = 'linux2'
 
         n = Noterator(range(5), DESKTOP, config_file=None)
