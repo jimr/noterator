@@ -60,6 +60,9 @@ You only need to define settings for the methods you wish to use.
 
 .. code-block:: ini
 
+    [desktop]
+    sound = true
+
     [email]
     from_mail = The Noterator <noterator@example.org>
     recipient = you@example.org
@@ -79,9 +82,6 @@ You only need to define settings for the methods you wish to use.
     token = abc123
     from_number = +123456
     to_number = +456789
-
-    [desktop]
-    sound = true
 
 TODO
 ~~~~
