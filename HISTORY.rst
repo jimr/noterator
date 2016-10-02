@@ -2,26 +2,17 @@
 History
 =======
 
-0.1.0 (2016-09-24)
+Unreleased changes
 ------------------
 
-* First release on PyPI.
+*
 
-0.2.0 (2016-09-25)
+0.4.0 (2016-09-30)
 ------------------
 
-* More safety checks in configuration
-* Added the ``every_n`` parameter to ``noterate``
-
-0.2.1 (2016-09-25)
-------------------
-
-* More appropriate exception usage in config loading / checking
-
-0.2.2 (2016-09-26)
-------------------
-
-* Fixed a packaging error
+* Desktop notification (Mac & Linux)
+* Improvements to testing
+* Test coverage reporting to codecov.io
 
 0.3.0 (2016-09-28)
 ------------------
@@ -33,9 +24,23 @@ History
 * Added tests for configuration file validation & all plugins
 * Travis CI + coverage / Coveralls integration
 
-0.4.0 (2016-09-30)
+0.2.2 (2016-09-26)
 ------------------
 
-* Desktop notification (Mac & Linux)
-* Improvements to testing
-* Test coverage reporting to codecov.io
+* Fixed a packaging error
+
+0.2.1 (2016-09-25)
+------------------
+
+* More appropriate exception usage in config loading / checking
+
+0.2.0 (2016-09-25)
+------------------
+
+* More safety checks in configuration
+* Added the ``every_n`` parameter to ``noterate``
+
+0.1.0 (2016-09-24)
+------------------
+
+* First release on PyPI.
