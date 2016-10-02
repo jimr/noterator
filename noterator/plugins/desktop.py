@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import subprocess
 import sys
 
 REQUIRED_CONFIG = []
@@ -22,4 +21,7 @@ def notify(head, body, **cfg):
         nc = NSUserNotificationCenter.defaultUserNotificationCenter()
         nc.scheduleNotification_(notification)
     elif sys.platform == 'linux2':
-        subprocess.Popen(['notify-send', head, body])
+        from gi.repository import Notify
+        Notify.init("The Noterator")
+        Notify.Notification.new(head, body).show()
+        Notify.uninit()
