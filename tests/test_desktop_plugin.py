@@ -8,6 +8,11 @@ from noterator import Noterator, DESKTOP
 
 
 class TestDesktopPlugin(unittest.TestCase):
+    """Not really testing anything here - needs work.
+
+    All we're really testing is that the mocks don't raise exceptions.
+
+    """
     def test_desktop_plugin_mac(self):
         objc = mock.Mock()
         sys.modules['objc'] = objc
@@ -25,9 +30,12 @@ class TestDesktopPlugin(unittest.TestCase):
 
         nc.scheduleNotification_.assert_called_once()
 
-    @mock.patch('noterator.plugins.desktop.subprocess')
-    def test_desktop_plugin_linux(self, subprocess):
+    def test_desktop_plugin_linux(self):
+        gi = mock.Mock()
+        gi.repository = mock.Mock()
+        sys.modules['gi'] = gi
         sys.platform = 'linux2'
+
         n = Noterator(range(5), DESKTOP, config_file=None)
         for _ in n:
             pass
