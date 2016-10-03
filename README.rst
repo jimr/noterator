@@ -84,7 +84,7 @@ You only need to define settings for the methods you wish to use.
     to_number = +456789
 
 TODO
-~~~~
+----
 
 * New notification plugins: logging, ...
 * Notication during iteration, a la `tqdm.write`_
