@@ -7,11 +7,11 @@ with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
-    history = history_file.read()
+    # Skipping the first line reduces the heading level by 1
+    history = ''.join(history_file.readlines()[1:])
 
-requirements = [
-    'requests[security]',
-]
+with open('requirements.txt') as req_file:
+    requirements = req_file.readlines()
 
 test_requirements = [
     'mock==2.0.0',
