@@ -10,12 +10,11 @@ with open('HISTORY.rst') as history_file:
     # Skipping the first line reduces the heading level by 1
     history = ''.join(history_file.readlines()[1:])
 
-with open('requirements.txt') as req_file:
+with open('requirements/base.txt') as req_file:
     requirements = req_file.readlines()
 
-test_requirements = [
-    'mock==2.0.0',
-]
+with open('requirements/test.txt') as req_file:
+    test_requirements = req_file.readlines()
 
 setup(
     name='noterator',

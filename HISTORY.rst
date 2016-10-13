@@ -2,6 +2,11 @@
 History
 =======
 
+Unreleased changes
+------------------
+
+* Prevent test failure due to timing errors
+
 0.4.1 (2016-10-13)
 ------------------
 

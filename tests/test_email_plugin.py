@@ -4,11 +4,12 @@ import mock
 import unittest
 
 from email.mime.text import MIMEText
-
+from freezegun import freeze_time
 from noterator import Noterator, EMAIL
 
 
 class TestEmailPlugin(unittest.TestCase):
+    @freeze_time("2016-10-01 09:20:00")
     @mock.patch('noterator.plugins.email.smtplib')
     def test_email_settings(self, smtplib):
         cfg = {
