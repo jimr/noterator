@@ -29,7 +29,7 @@ Adding notification to your iteration.
 .. code-block:: pycon
 
     >>> from noterator import noterate, EMAIL, TWILIO
-    >>> for obj in noterate(my_objects, EMAIL|HIPCHAT|TWILIO):
+    >>> for obj in noterate(my_objects, EMAIL|TWILIO):
     ...     do_something_slow(obj)
     ... 
     >>> 
