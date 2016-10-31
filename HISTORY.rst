@@ -2,6 +2,11 @@
 History
 =======
 
+0.4.3 (2016-10-31)
+------------------
+
+* Fix a packaging issue relating to moved requirements
+
 0.4.2 (2016-10-20)
 ------------------
 

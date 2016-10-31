@@ -14,11 +14,11 @@ with open('requirements/base.txt') as req_file:
     requirements = req_file.readlines()
 
 with open('requirements/test.txt') as req_file:
-    test_requirements = req_file.readlines()
+    test_requirements = req_file.readlines()[1:]
 
 setup(
     name='noterator',
-    version='0.4.2',
+    version='0.4.3',
     description="The Noterator: bringing notification to iteration.",
     long_description=readme + '\n\n' + history,
     author="James Rutherford",
