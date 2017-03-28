@@ -17,7 +17,7 @@ def load_config(fname=None):
 
     Args:
         fname (str): Path to the ini file we should use. If not provided, we
-            default to $HOME/.config/bocho/config.ini
+            default to $HOME/.config/noterator/config.ini
 
     Returns:
         The parsed configuration
