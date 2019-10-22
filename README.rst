@@ -82,7 +82,7 @@ You only need to define settings for the methods you wish to use.
 TODO
 ----
 
-* New notification plugins: logging, ...
+* New notification plugins: Slack, Mattermost, logging, ...
 * Notication during iteration, a la `tqdm.write`_
 
 .. _`tqdm.write`: https://github.com/tqdm/tqdm#writing-messages
