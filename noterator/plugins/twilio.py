@@ -7,6 +7,7 @@ import requests
 REQUIRED_CONFIG = [
     'account_sid', 'token', 'from_number', 'to_number',
 ]
+BASE_URL = 'https://api.twilio.com/2010-04-01'
 
 
 def notify(head, body, **kwargs):
@@ -15,9 +16,7 @@ def notify(head, body, **kwargs):
     from_number = kwargs['from_number']
     to_number = kwargs['to_number']
 
-    url = 'https://api.twilio.com/2010-04-01/Accounts/{}/Messages.json'.format(
-        account_sid,
-    )
+    url = '{}/Accounts/{}/Messages.json'.format(BASE_URL, account_sid)
     payload = {
         "From": from_number,
         "To": to_number,

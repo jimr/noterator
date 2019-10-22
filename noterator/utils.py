@@ -20,6 +20,6 @@ def catch_all(func):
     def _inner(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except:
+        except Exception:
             pass
     return _inner

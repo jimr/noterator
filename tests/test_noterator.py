@@ -3,7 +3,7 @@
 import mock
 import unittest
 
-from .utils import all_available_methods, get_config_path
+from .utils import get_config_path
 
 from noterator import Noterator, noterate, EMAIL
 
@@ -14,7 +14,7 @@ class TestNoterator(unittest.TestCase):
         cfg = get_config_path('config-full.ini')
         for _ in noterate(range(3), EMAIL, config_file=cfg):
             pass
-        
+
         notify.assert_called_once()
 
     @mock.patch('noterator.plugins.email.notify')
@@ -26,7 +26,7 @@ class TestNoterator(unittest.TestCase):
                 it.next()
             except StopIteration:
                 break
-        
+
         notify.assert_called_once()
 
     @mock.patch('noterator.plugins.email.notify')

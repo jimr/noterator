@@ -4,6 +4,7 @@ import mock
 import unittest
 
 from noterator import Noterator, TWILIO
+from noterator.plugins.twilio import BASE_URL
 
 
 class TestEmailPlugin(unittest.TestCase):
@@ -21,8 +22,8 @@ class TestEmailPlugin(unittest.TestCase):
         for _ in n:
             pass
 
-        url = 'https://api.twilio.com/2010-04-01/Accounts/{}/Messages.json'.format(
-            cfg['account_sid'],
+        url = '{}/Accounts/{}/Messages.json'.format(
+            BASE_URL, cfg['account_sid'],
         )
         payload = {
             "From": cfg['from_number'],

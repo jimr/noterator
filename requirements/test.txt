@@ -1,5 +1,6 @@
 # pyup: ignore file
-pytest==2.9.2
-pytest-cov==2.3.1
-mock==2.0.0
-freezegun==0.3.7
+pytest==5.2.1
+pytest-cov==2.8.1
+tox-pyenv==1.1.0
+mock==3.0.5
+freezegun==0.3.12

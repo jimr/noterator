@@ -37,7 +37,7 @@ class Noterator(object):
         >>> for obj in noterator(my_other_objects, desc="loop 2")
         ...     do_something_else_slow(obj)
         ...
-        >>> 
+        >>>
 
     And if you want to build a Noterator without using a configuration file (or
     if you just want to override some configured options)::
@@ -47,8 +47,8 @@ class Noterator(object):
         >>> noterator.configure_plugin('email', recipient='you@example.org')
         >>> for obj in noterator
         ...     do_something_slow(obj)
-        ... 
-        >>> 
+        ...
+        >>>
 
     If `iterable` isn't set on class initialisation, it must be set before
     looping, or as a parameter to the ``noterate`` method.
@@ -113,7 +113,7 @@ class Noterator(object):
             >>> noterator = Noterator(my_objects, EMAIL, every_n=100)
             >>> for obj in noterator(desc="loop 1")
             ...     do_something_slow(obj)
-            ... 
+            ...
 
         """
         if iterable is not None:
@@ -249,8 +249,8 @@ def noterate(iterable, *args, **kwargs):
         >>> from noterator import noterate, EMAIL
         >>> for obj in noterate(my_objects, EMAIL, "My super-slow iteration"):
         ...     do_something_slow(obj)
-        ... 
-        >>> 
+        ...
+        >>>
 
     By default you only find out when the iteration completes, but sometimes
     it's useful to know when these things start too::
@@ -258,8 +258,8 @@ def noterate(iterable, *args, **kwargs):
         >>> from noterator import noterate, EMAIL, HIPCHAT
         >>> for obj in noterate(my_objects, EMAIL|HIPCHAT, start=True):
         ...     do_something_slow(obj)
-        ... 
-        >>> 
+        ...
+        >>>
 
     This function is a convenience wrapper around the ``Noterator`` class. The
     code above is equivalent to::
@@ -268,8 +268,8 @@ def noterate(iterable, *args, **kwargs):
         >>> noterator = Noterator(my_objects, EMAIL|HIPCHAT, start=True)
         >>> for obj in noterator:
         ...     do_something_slow(obj)
-        ... 
-        >>> 
+        ...
+        >>>
 
     Positional and Keyword arguments are the same as for ``Noterator.__init__``
     except that ``iterable`` is required.

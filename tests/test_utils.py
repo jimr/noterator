@@ -13,5 +13,5 @@ class TestUtils(unittest.TestCase):
 
         try:
             exceptional_function()
-        except:
+        except Exception:
             self.fail("Exception not caught")
