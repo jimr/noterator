@@ -18,7 +18,7 @@ with open('requirements/test.txt') as req_file:
 
 setup(
     name='noterator',
-    version='0.4.3',
+    version='0.5.0',
     description="The Noterator: bringing notification to iteration.",
     long_description=readme + '\n\n' + history,
     author="James Rutherford",
